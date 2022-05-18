@@ -1,7 +1,8 @@
 # STOPWATCH 
 # Main Functions: Start, Stop, Lap/Split, Reset
 
-# import modules
+import time 
+
 # program widget
 # Defining ariables in this program
 time_elapsed_1 = 0
@@ -14,8 +15,48 @@ b = 0
 
 # Creating functions of the stopwatch
 # Start function
-def start():
-    pass
+def start(): 
+
+    global time_elapsed_1,time_elapsed_2,time_elapsed_3,time_1,self_job,time_2
+
+    time_2 = int(time.time())
+
+    if time_2 != time_1:
+
+        time_1 = time_2
+
+        if time_elapsed_1 < 59:
+
+            time_elapsed_1 += 1 
+
+        else:
+
+            time_elapsed_1 = 0
+
+            time_elapsed_2 += 1
+
+            if time_elapsed_2 < 59:
+
+                time_elapsed_2 += 1
+
+            else:
+
+                time_elapsed_2 = 0
+
+                time_elapsed_3 +=1
+
+                if time_elapsed_3 >= 24:
+
+                    time_elapsed_1 = 0
+
+                    time_elapsed_2 = 0
+
+                    time_elapsed_3 = 0
+
+                else:
+
+                    time_elapsed_3 += 1
+    
 # Stop function
 def stop():
     pass
