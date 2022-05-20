@@ -1,36 +1,28 @@
 # STOPWATCH 
 # Main Functions: Start, Stop, Lap/Split, Reset
 
-import time 
-
 # program widget
 # Defining ariables in this program
-time_elapsed_1 = 0
-time_elapsed_2 = 0
-time_elapsed_3 = 0
-time_1 = 0
-time_2= 0
-a = 0
-b = 0
 
 # Creating functions of the stopwatch
 # Start function
 def start(): 
     pass
-
-
     
 # Stop function
 def stop():
     pass
+    
 # Lap function
 def lap():
     pass
+    
 # Reset function
 def reset():
     pass
+    
 # Buttons configuration and placements
-# clock
+# clock_frame
 # start_button 
 # stop_button 
 # lap_button 
