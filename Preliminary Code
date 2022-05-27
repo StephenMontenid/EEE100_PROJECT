@@ -1,6 +1,10 @@
 # STOPWATCH 
 # Main Functions: Start, Stop, Lap/Split, Reset
 
+# Import modules 
+from tkinter import *
+import time
+
 # program widget
 root = Tk()
 root.title("Stopwatch")
@@ -168,6 +172,11 @@ resume_button = Button(image = photoimage_1, borderwidth = 0, command = start, b
 lap_button = Button(image = photoimage_3, borderwidth = 0, command = lap, bg = "#273755")
 reset_button = Button(image = photoimage_4, borderwidth = 0, command = reset, bg = "#273755")
 
- 
+# Button placements
+start_button.place(x = 75, y = 240, width = 100, height = 40)
+stop_button.place(x = 75, y = 240, width = 100, height = 40)
+resume_button.place(x = 75, y = 240, width = 100, height = 40)
+lap_button.place(x = 250, y = 240, width = 100, height = 40)
+reset_button.place(x = 250, y = 240, width = 100, height = 40)
 
 root.mainloop()
