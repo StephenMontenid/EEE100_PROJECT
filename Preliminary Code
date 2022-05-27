@@ -79,6 +79,12 @@ def lap():
         lap_times((str(time_elapsed_3).zfill(2) + ":" + str(time_elapsed_2).zfill(2) + ":" + str(time_elapsed_1).zfill(2)), 20+(110*a),400+(b*50))
     a += 1
 
+# Time laps
+def lap_times(text,_x,_y):
+    label_1 = Label(root, text = "Lap times: ",fg = "black",bg = "white", font = ("Helevitica", 12,"bold"))
+    label_2 = Label(root, text = text,fg = "black",bg = "white", font = ("Helevitica", 12,"bold"))
+    label_1.place(x= 30, y = 400, width = 100, height = 80)
+    label_2.place(x= _y, y = 400+_x, width = 70, height = 80)
     
 # Reset function
 def reset():
