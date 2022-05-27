@@ -2,12 +2,81 @@
 # Main Functions: Start, Stop, Lap/Split, Reset
 
 # program widget
-# Defining ariables in this program
+root = Tk()
+root.title("Stopwatch")
+root.configure(background=("#273755"))
+root.geometry("800x500")
+root.resizable(0,0) 
+
+# Create a canvas and line
+my_canvas = Canvas(root, width = 800, height = 500, bg = "#273755", highlightthickness = 0)
+my_canvas.pack()
+l = my_canvas.create_line(0,55,650,55, fill = "white")
+
+# Defining variables in this program
 
 # Creating functions of the stopwatch
 # Start function
-def start(): 
-    pass
+
+
+def start():
+
+    start_button.place_forget()
+
+    resume_button.place_forget()
+
+    reset_button.place_forget()
+
+    stop_button.place(x = 75, y = 240, width = 75, height = 23)
+
+    global time_elapsed_1,time_elapsed_2,time_elapsed_3,time_1,self_job,time_2
+
+    time_2 = int(time.time())
+
+    if time_2 != time_1:
+
+        time_1 = time_2
+
+        if time_elapsed_1 < 59:
+
+            time_elapsed_1 += 1
+
+            clock.config(text = (str(time_elapsed_3).zfill(2) + ":" + str(time_elapsed_2).zfill(2) + ":" + str(time_elapsed_1).zfill(2)))
+
+        else:
+
+            time_elapsed_1 = 0
+
+            time_elapsed_2 += 1
+
+            if time_elapsed_2 < 59:
+
+                time_elapsed_2 += 1
+
+                clock.config(text = (str(time_elapsed_3).zfill(2) + ":" + str(time_elapsed_2).zfill(2) + ":" + str(time_elapsed_1).zfill(2)))
+
+            else:
+
+                time_elapsed_2 = 0
+
+                time_elapsed_3 +=1
+
+                if time_elapsed_3 >= 24:
+
+                    time_elapsed_1 = 0
+
+                    time_elapsed_2 = 0
+
+                    time_elapsed_3 = 0
+
+                else:
+
+                    time_elapsed_3 += 1
+
+                    clock.config(text = (str(time_elapsed_3).zfill(2) + ":" + str(time_elapsed_2).zfill(2) + ":" + str(time_elapsed_1).zfill(2)))
+
+    self_job = root.after(1000, start)
+
     
 # Stop function
 def stop():
@@ -31,43 +100,11 @@ def lap():
         a = 0
         lap_times((str(time_elapsed_3).zfill(2) + ":" + str(time_elapsed_2).zfill(2) + ":" + str(time_elapsed_1).zfill(2)), 20+(110*a),400+(b*50))
     a += 1
-    
-# Time laps
-def lap_times(text,_x,_y):
-    label_1 = Label(root, text = "Lap times: ",fg = "black",bg = "white", font = ("Helevitica", 12,"bold"))
-    label_2 = Label(root, text = text,fg = "black",bg = "white", font = ("Helevitica", 12,"bold"))
-    label_1.place(x= 30, y = 400, width = 100, height = 80)
-    label_2.place(x= _y, y = 400+_x, width = 70, height = 80)
+
     
 # Reset function
 def reset():
-    def reset():
-    global time_elapsed_1, time_elapsed_2, time_elapsed_3,time_1,self_job,time_2,a,b
-    try:
-        stop()
-    except:
-        start()
-        stop()
-    clock.config(text = "00:00:00")
-    time_elapsed_1 = 0
-    time_elapsed_2 = 0
-    time_elapsed_3 = 0
-    time_1 = 0
-    time_2 = 0
-    a = 0
-    b = 0
-
-    widget = root.winfo_children()
-    for i in widget:
-        i.place_forget()
-        resume_button.place_forget()
-        reset_button.place_forget()
-        
-    start_button.place(x = 75, y = 240, width = 100, height = 40)
-    lap_button.place(x = 250, y = 240, width = 100, height = 40)
-    clock.place(x = 30,y = 120,width = 400,height = 90)
-    my_clock.place(x = 650,y = 2, width = 150, height = 80) 
-    my_clock2.place(x = 660,y = 55, width = 140,height = 25) 
+    pass
     
 # Buttons configuration and placements
 # clock_frame
