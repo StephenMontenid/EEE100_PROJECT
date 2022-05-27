@@ -13,10 +13,10 @@ def clock():
     AP = time.strftime("%p")
     date = time.strftime("%x")
     
-    my_clock.config(text= hour + ":" + minute + ":" + " " + AP)
+    my_clock.config(text= hour + ":" + minute + " " + AP)
     my_clock.after (1000, clock)
     
-    my_clock2.config(text = day + " /" + date + "/")
+    my_clock2.config(text = day + " /" + date)
     
 def update():
     my_clock.config(text = "Text")
