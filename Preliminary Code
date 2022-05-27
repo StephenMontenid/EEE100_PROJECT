@@ -2,8 +2,16 @@
 # Main Functions: Start, Stop, Lap/Split, Reset
 
 # program widget
+root = Tk()
+root.title("Stopwatch")
+root.configure(background=("#273755"))
+root.geometry("800x500")
+root.resizable(0,0) 
 
-
+# Create a canvas and line
+my_canvas = Canvas(root, width = 800, height = 500, bg = "#273755", highlightthickness = 0)
+my_canvas.pack()
+l = my_canvas.create_line(0,55,650,55, fill = "white")
 
 # Defining global variables in this program
 time_elapsed_1 = 0
