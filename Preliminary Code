@@ -1,94 +1,37 @@
 # STOPWATCH 
-from tkinter import *
+# Main Functions: Start, Stop, Lap/Split, Reset
 
-import time
-
-# program widget/window
-
-root = Tk()
-
-root.title("Stopwatch")
-
-root.configure(background=("#273755"))
-
-root.geometry("800x500")
-
-root.resizable(0,0) 
-
-
-
-
+# program widget
+# Defining ariables in this program
 
 # Creating functions of the stopwatch
 # Start function
-
-def start():
-
-    start_button.place_forget()
-
-    resume_button.place_forget()
-
-    reset_button.place_forget()
-
-    stop_button.place(x = 75, y = 240, width = 75, height = 23)
-
-    global time_elapsed_1,time_elapsed_2,time_elapsed_3,time_1,self_job,time_2
-
-    time_2 = int(time.time())
-
-    if time_2 != time_1:
-
-        time_1 = time_2
-
-        if time_elapsed_1 < 59:
-
-            time_elapsed_1 += 1
-
-            clock.config(text = (str(time_elapsed_3).zfill(2) + ":" + str(time_elapsed_2).zfill(2) + ":" + str(time_elapsed_1).zfill(2)))
-
-        else:
-
-            time_elapsed_1 = 0
-
-            time_elapsed_2 += 1
-
-            if time_elapsed_2 < 59:
-
-                time_elapsed_2 += 1
-
-                clock.config(text = (str(time_elapsed_3).zfill(2) + ":" + str(time_elapsed_2).zfill(2) + ":" + str(time_elapsed_1).zfill(2)))
-
-            else:
-
-                time_elapsed_2 = 0
-
-                time_elapsed_3 +=1
-
-                if time_elapsed_3 >= 24:
-
-                    time_elapsed_1 = 0
-
-                    time_elapsed_2 = 0
-
-                    time_elapsed_3 = 0
-
-                else:
-
-                    time_elapsed_3 += 1
-
-                    clock.config(text = (str(time_elapsed_3).zfill(2) + ":" + str(time_elapsed_2).zfill(2) + ":" + str(time_elapsed_1).zfill(2)))
-
-    self_job = root.after(1000, start)
- 
-
+def start(): 
+    pass
     
 # Stop function
 def stop():
-    pass
+    def stop():
+    global self_job
+    if self_job is not None:
+        root.after_cancel(self_job)
+        self_job = None
+    stop_button.place_forget()
+    resume_button.place(x = 75, y = 240, width = 100, height = 40)
+    reset_button.place(x = 250, y = 240, width = 100, height = 40)
     
 # Lap function
 def lap():
-    pass
+    def lap():
+    global time_elapsed_1, time_elapsed_2, time_elapsed_3,time_1,self_job,time_2,a,b
+    if a < 9:
+        lap_times((str(time_elapsed_3).zfill(2) + ":" + str(time_elapsed_2).zfill(2) + ":" + str(time_elapsed_1).zfill(2)), 20+(110*a),400+(b*50))
+    else:
+        b += 1
+        a = 0
+        lap_times((str(time_elapsed_3).zfill(2) + ":" + str(time_elapsed_2).zfill(2) + ":" + str(time_elapsed_1).zfill(2)), 20+(110*a),400+(b*50))
+    a += 1
+
     
 # Reset function
 def reset():
