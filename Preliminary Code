@@ -148,11 +148,26 @@ def reset():
     clock.place(x = 30,y = 120,width = 400,height = 90)
     my_clock.place(x = 650,y = 2, width = 150, height = 80) 
     my_clock2.place(x = 660,y = 55, width = 140,height = 25) 
-    
-# Buttons configuration and placements
-# clock_frame
-# start_button 
-# stop_button 
-# lap_button 
+  
+# Images for buttons
+imagetest_1 = PhotoImage(file = r"C:\\mich\\1ST YEAR\\2ND SEM\\ELECTRICAL PROGRAMMING\\EXAM\\SAMPLE DESIGN\\ICON\\START.png")
+imagetest_2 = PhotoImage(file = r"C:\\mich\\1ST YEAR\\2ND SEM\\ELECTRICAL PROGRAMMING\\EXAM\\SAMPLE DESIGN\\ICON\\STOP.png")
+imagetest_3 = PhotoImage(file = r"C:\\mich\\1ST YEAR\\2ND SEM\\ELECTRICAL PROGRAMMING\\EXAM\\SAMPLE DESIGN\\ICON\\LAP.png")
+imagetest_4 = PhotoImage(file = r"C:\\mich\\1ST YEAR\\2ND SEM\\ELECTRICAL PROGRAMMING\\EXAM\\SAMPLE DESIGN\\ICON\\RESTART.png")
+
+# Resizing image to fit on button 
+photoimage_1 = imagetest_1.subsample(35,30)
+photoimage_2 = imagetest_2.subsample(35,30)
+photoimage_3 = imagetest_3.subsample(35,30)
+photoimage_4 = imagetest_4.subsample(35,30)
+
+# Button configuration
+start_button = Button(image = photoimage_1, borderwidth = 0, command = start, bg = "#273755")
+stop_button = Button(image = photoimage_2, borderwidth = 0, command = stop, bg = "#273755")
+resume_button = Button(image = photoimage_1, borderwidth = 0, command = start, bg = "#273755")
+lap_button = Button(image = photoimage_3, borderwidth = 0, command = lap, bg = "#273755")
+reset_button = Button(image = photoimage_4, borderwidth = 0, command = reset, bg = "#273755")
+
+ 
 
 root.mainloop()
