@@ -2,82 +2,52 @@
 # Main Functions: Start, Stop, Lap/Split, Reset
 
 # program widget
-root = Tk()
-root.title("Stopwatch")
-root.configure(background=("#273755"))
-root.geometry("800x500")
-root.resizable(0,0) 
 
-# Create a canvas and line
-my_canvas = Canvas(root, width = 800, height = 500, bg = "#273755", highlightthickness = 0)
-my_canvas.pack()
-l = my_canvas.create_line(0,55,650,55, fill = "white")
 
-# Defining variables in this program
+
+# Defining global variables in this program
+time_elapsed_1 = 0
+time_elapsed_2 = 0
+time_elapsed_3 = 0
+time_1 = 0
+time_2= 0
+a = 0
+b = 0
 
 # Creating functions of the stopwatch
 # Start function
 
 
 def start():
-
     start_button.place_forget()
-
     resume_button.place_forget()
-
     reset_button.place_forget()
-
     stop_button.place(x = 75, y = 240, width = 75, height = 23)
-
     global time_elapsed_1,time_elapsed_2,time_elapsed_3,time_1,self_job,time_2
-
     time_2 = int(time.time())
-
     if time_2 != time_1:
-
         time_1 = time_2
-
         if time_elapsed_1 < 59:
-
             time_elapsed_1 += 1
-
             clock.config(text = (str(time_elapsed_3).zfill(2) + ":" + str(time_elapsed_2).zfill(2) + ":" + str(time_elapsed_1).zfill(2)))
-
         else:
-
             time_elapsed_1 = 0
-
             time_elapsed_2 += 1
-
             if time_elapsed_2 < 59:
-
                 time_elapsed_2 += 1
-
                 clock.config(text = (str(time_elapsed_3).zfill(2) + ":" + str(time_elapsed_2).zfill(2) + ":" + str(time_elapsed_1).zfill(2)))
-
             else:
-
                 time_elapsed_2 = 0
-
                 time_elapsed_3 +=1
-
                 if time_elapsed_3 >= 24:
-
                     time_elapsed_1 = 0
-
                     time_elapsed_2 = 0
-
                     time_elapsed_3 = 0
-
                 else:
-
                     time_elapsed_3 += 1
-
                     clock.config(text = (str(time_elapsed_3).zfill(2) + ":" + str(time_elapsed_2).zfill(2) + ":" + str(time_elapsed_1).zfill(2)))
-
     self_job = root.after(1000, start)
 
-    
 # Stop function
 def stop():
     def stop():
@@ -111,3 +81,5 @@ def reset():
 # start_button 
 # stop_button 
 # lap_button 
+
+root.mainloop()
