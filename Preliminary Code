@@ -29,8 +29,8 @@ def digi_clock():
 def update():
     my_clock.config(text = "New Text")
     
-digi_clock()
-root.mainloop()
+
+
     
  
 
@@ -196,4 +196,6 @@ resume_button.place(x = 75, y = 240, width = 100, height = 40)
 lap_button.place(x = 250, y = 240, width = 100, height = 40)
 reset_button.place(x = 250, y = 240, width = 100, height = 40)
 
+
+digi_clock()
 root.mainloop()
