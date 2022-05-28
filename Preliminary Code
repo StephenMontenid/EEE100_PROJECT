@@ -29,6 +29,15 @@ def digi_clock():
 def update():
     my_clock.config(text = "New Text")
     
+# Clock configuration
+my_clock = Label(root, text = "", bg = "#273755", fg = "white", font = ("Bebas Neue Book", 24, "bold")) 
+my_clock.place(x = 650,y = 2, width = 150, height = 80) 
+my_clock2 = Label(root, text = " ", bg = "#273755", justify = "left", anchor = "w", fg = "white", font = ("Bebas Neue Book", 16))
+my_clock2.place(x = 660,y = 55, width = 140,height = 25) 
+
+clock = Label(text = "00:00:00", bg = "#273755", fg = "white", font = ("Bebas Neue Book",90,"bold"))
+clock.place(x = 30,y = 120,width = 400,height = 90)
+
 # Defining global variables in this program
 time_elapsed_1 = 0
 time_elapsed_2 = 0
