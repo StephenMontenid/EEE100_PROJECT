@@ -29,6 +29,9 @@ def digi_clock():
 def update():
     my_clock.config(text = "New Text")
     
+digi_clock()
+root.mainloop()
+    
  
 
 # Defining global variables in this program
