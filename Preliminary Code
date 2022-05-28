@@ -17,6 +17,20 @@ my_canvas = Canvas(root, width = 800, height = 500, bg = "#273755", highlightthi
 my_canvas.pack()
 l = my_canvas.create_line(0,55,650,55, fill = "white")
 
+#digital_clock
+def digi_clock():
+    Time = time.strftime("%H:%M %p")
+    Date = time.strftime("%A %x")
+    
+    my_clock.config(text= Time)
+    my_clock.after (1000, clock)
+    my_clock2.config(text = Date)
+    
+def update():
+    my_clock.config(text = "New Text")
+    
+ 
+
 # Defining global variables in this program
 time_elapsed_1 = 0
 time_elapsed_2 = 0
