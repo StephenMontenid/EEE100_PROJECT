@@ -2,6 +2,7 @@ import cv2
 import mediapipe
 import autopy
 import numpy
+import time
 
 cap = cv2.VideoCapture(0)
 initHand = mediapipe.solutions.hands  
@@ -63,7 +64,8 @@ while True:
 
         if finger[1] == 0 and finger[0] == 1:  # Checks thumbs-up sign
             autopy.mouse.click() 
-           
+            time.sleep(1)
+            
     cv2.imshow("Webcam", img)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
