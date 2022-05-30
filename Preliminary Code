@@ -5,6 +5,19 @@
 from tkinter import *
 import time
 
+class StopWatch(Frame):                                                            
+    def __init__(self, parent=None, **kw):        
+        Frame.__init__(self, parent, kw)
+        self._start = 0.0        
+        self._elapsedtime = 0.0
+        self._running = 0
+        self.timestr = StringVar()
+        self.lap_time_box = 0
+        self.widget()
+        self.laps = [] 
+        self.old_time = 0
+        self.today = time.strftime("%d %b %Y %H-%M-%S", time.localtime())  
+
 # program widget
 root = Tk()
 root.title("Stopwatch")
