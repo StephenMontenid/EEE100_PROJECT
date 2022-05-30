@@ -97,37 +97,20 @@ class StopWatch(Frame):
             self._running = 0
 
 # Resume function
-def resume():
-    resume_button.place_forget()
-    start_button.place_forget()
-    reset_button.place_forget()
-    stop_button.place(x = 75, y = 240, width = 100, height = 40)
-    lap_button.place(x = 250, y = 240, width = 100, height = 40)
-    
-    global time_elapsed_1,time_elapsed_2,time_elapsed_3,time_1,self_job,time_2
-    time_2 = int(time.time())
-    if time_2 != time_1:
-        time_1 = time_2
-        if time_elapsed_1 < 59:
-            time_elapsed_1 += 1
-            clock.config(text=(str(time_elapsed_3).zfill(2) + ":" + str(time_elapsed_2).zfill(2) + ":" + str(time_elapsed_1).zfill(2)))
-        else:
-            time_elapsed_1 = 0
-            time_elapsed_2 += 1
-            if time_elapsed_2 < 59:
-                time_elapsed_2 += 1
-                clock.config(text = (str(time_elapsed_3).zfill(2) + ":" + str(time_elapsed_2).zfill(2) + ":" + str(time_elapsed_1).zfill(2)))
-            else:
-                time_elapsed_2 = 0
-                time_elapsed_3 +=1
-                if time_elapsed_3 >= 24:
-                    time_elapsed_1 = 0
-                    time_elapsed_2 = 0
-                    time_elapsed_3 = 0
-                else:
-                    time_elapsed_3 += 1
-                    clock.config(text = (str(time_elapsed_3).zfill(2) + ":" + str(time_elapsed_2).zfill(2) + ":" + str(time_elapsed_1).zfill(2)))
-    self_job = root.after(1000, start)
+    def Resume(self):
+        if not self._running:            
+            self._start = time.time() - self._elapsedtime
+            self.update()
+            self._running = 1   
+
+        # Reset Function
+    def Reset(self):        
+        self.lap_time_box.delete(0, END)                            
+        self._start = time.time()
+        self._elapsedtime = 0.0
+        self.time(self._elapsedtime)
+        self.laps = []
+        self.old_time = 0
     
 # Lap function
 def lap():
