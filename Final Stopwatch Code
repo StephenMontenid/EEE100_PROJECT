@@ -1,9 +1,10 @@
-# STOPWATCH 
-# Main Functions: Start, Stop, Lap/Split, Reset
+# MINIMALIST DESKTOP STOPWATCH 
+# Core Functions: Start, Stop, Lap/Split, Reset, Resume, Save lap file
 
-# Import modules 
+# Import libraries
 from tkinter import *
 import time
+import keyboard, threading
 
 class StopWatch(Frame):                                                            
     def __init__(self, parent=None, **kw):        
@@ -37,22 +38,21 @@ class StopWatch(Frame):
         my_canvas.create_text(227,225, text = "MINUTES", fill = "white", anchor = "c", font = ("Lato",10)) 
         my_canvas.create_text(370,225, text = "SECONDS", fill = "white", anchor = "w", font = ("Lato",10))
 
-        LapTime = Label(text='Lap times',  bg = "#273755", fg = "white", font = ("Lato",20,"bold"),)
+        LapTime = Label(text='Lap Times',  bg = "#273755", fg = "white", font = ("Lato",20,"bold"),)
         LapTime.place(x = 200,y = 320,width = 400,height = 30)
 
         scrollbar = Scrollbar(orient=VERTICAL)
-        self.lap_time_box = Listbox(selectmode=EXTENDED, height = 5,
-                         yscrollcommand=scrollbar.set, bg = "#273755", fg = "white", font = ("Lato",12), border = 0)
+        self.lap_time_box = Listbox(selectmode=EXTENDED, height = 5, yscrollcommand = scrollbar.set, bg = "#273755", fg = "white", font = ("Lato", 12), border = 0)
         self.lap_time_box.place(x = 240,y = 350,width = 300,height = 100)
-        scrollbar.config(command=self.lap_time_box.yview,highlightthickness=0)
-        scrollbar.place(x = 255,y = 350,width =300,height = 100)
+        scrollbar.config(command = self.lap_time_box.yview,highlightthickness=0)
+        scrollbar.place(x = 255,y = 350,width = 300,height = 100)
         
         #digi_clock
         def digi_clock():
             Time = time.strftime("%I:%M %p")
             Date = time.strftime("%A %x")
     
-            my_clock.config(text= Time)
+            my_clock.config(text = Time)
             my_clock.after (1000, digi_clock)
             my_clock2.config(text = Date)
     
@@ -63,12 +63,12 @@ class StopWatch(Frame):
         my_clock = Label(text = "", bg = "#273755", fg = "white", font = ("Lato", 24, "bold")) 
         my_clock.place(x = 330,y = 5,width = 150, height = 25) 
         my_clock2 = Label(text = " ", bg = "#273755", justify = "left", anchor = "w", fg = "white", font = ("Lato", 12))
-        my_clock2.place(x = 343,y = 30,width = 150,height = 20) 
+        my_clock2.place(x = 343, y = 30,width = 150, height = 20) 
 
         digi_clock()
 
 # Creating functions of the stopwatch
-    # Updates time relative time elapsed
+    # Updates time relative to time elapsed
     def update(self): 
         self._elapsedtime = time.time() - self._start
         self.time(self._elapsedtime)
@@ -156,7 +156,7 @@ def main():
     photoimage_2 = imagetest_2.subsample(48,28)
     photoimage_3 = imagetest_3.subsample(48,28)
     photoimage_4 = imagetest_4.subsample(48,28)
-    photoimage_5 = imagetest_5.subsample(123, 123)
+    photoimage_5 = imagetest_5.subsample(123,123)
 
     Start_Button = Button(image = photoimage_1, borderwidth = 0, command=sw.Start)
     Stop_Button = Button(image = photoimage_2, borderwidth = 0, command=sw.Stop)
@@ -170,17 +170,17 @@ def main():
     Reset_Button.place(x = 525, y = 260, width = 70, height = 30)
     Save_Button.place(x = 520, y = 462, width = 25, height = 25)
     
-# Hotkeys confuguration
+# Hotkeys configuration
     def key_loop():      
         while True:
             if keyboard.is_pressed("spacebar"):
                 sw.Start()
+            elif keyboard.is_pressed("shift"):
+                sw.Stop()
             elif keyboard.is_pressed("enter"):
                 sw.Lap_times()
             elif keyboard.is_pressed("backspace"):
                 sw.Reset()
-            elif keyboard.is_pressed("shift"):
-                sw.Stop()
             elif keyboard.is_pressed("ctrl + s"):
                 sw.Save_LapFile()
             else:
