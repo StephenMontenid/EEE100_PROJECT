@@ -135,62 +135,41 @@ class StopWatch(Frame):
         with open(archives + self.today + '.txt', 'wb') as lapfile:
             for lap in self.laps:
                 lapfile.write((bytes(str(lap) + '\n', 'utf-8')))  
+def main():
+    root = Tk()
+    root.geometry("800x500")
+    root.title("Stopwatch")
+    root.configure(background=("#273755"))  
+    root.resizable(0,0)     
+    sw = StopWatch(root) 
+    sw.pack(side=TOP)
     
-# Reset function
-def reset():
-    def reset():
-    global time_elapsed_1, time_elapsed_2, time_elapsed_3,time_1,self_job,time_2,a,b
-    try:
-        stop()
-    except:
-        start()
-        stop()
-    clock.config(text = "00:00:00")
-    time_elapsed_1 = 0
-    time_elapsed_2 = 0
-    time_elapsed_3 = 0
-    time_1 = 0
-    time_2 = 0
-    a = 0
-    b = 0
+    # Images for buttons
+    imagetest_1 = PhotoImage(file = r"START.png")
+    imagetest_2 = PhotoImage(file = r"STOP.png")
+    imagetest_3 = PhotoImage(file = r"LAP.png")
+    imagetest_4 = PhotoImage(file = r"RESTART.png")
+    imagetest_5 = PhotoImage(file = r"SAVE.png")
 
-    widget = root.winfo_children()
-    for i in widget:
-        i.place_forget()
-        resume_button.place_forget()
-        reset_button.place_forget()
-        
-    start_button.place(x = 75, y = 240, width = 100, height = 40)
-    lap_button.place(x = 250, y = 240, width = 100, height = 40)
-    clock.place(x = 30,y = 120,width = 400,height = 90)
-    my_clock.place(x = 650,y = 2, width = 150, height = 80) 
-    my_clock2.place(x = 660,y = 55, width = 140,height = 25) 
-  
-# Images for buttons
-imagetest_1 = PhotoImage(file = r"C:\\mich\\1ST YEAR\\2ND SEM\\ELECTRICAL PROGRAMMING\\EXAM\\SAMPLE DESIGN\\ICON\\START.png")
-imagetest_2 = PhotoImage(file = r"C:\\mich\\1ST YEAR\\2ND SEM\\ELECTRICAL PROGRAMMING\\EXAM\\SAMPLE DESIGN\\ICON\\STOP.png")
-imagetest_3 = PhotoImage(file = r"C:\\mich\\1ST YEAR\\2ND SEM\\ELECTRICAL PROGRAMMING\\EXAM\\SAMPLE DESIGN\\ICON\\LAP.png")
-imagetest_4 = PhotoImage(file = r"C:\\mich\\1ST YEAR\\2ND SEM\\ELECTRICAL PROGRAMMING\\EXAM\\SAMPLE DESIGN\\ICON\\RESTART.png")
+    # Resizing image to fit on button 
+    photoimage_1 = imagetest_1.subsample(48,28)
+    photoimage_2 = imagetest_2.subsample(48,28)
+    photoimage_3 = imagetest_3.subsample(48,28)
+    photoimage_4 = imagetest_4.subsample(48,28)
+    photoimage_5 = imagetest_5.subsample(48,28)
 
-# Resizing image to fit on button 
-photoimage_1 = imagetest_1.subsample(35,30)
-photoimage_2 = imagetest_2.subsample(35,30)
-photoimage_3 = imagetest_3.subsample(35,30)
-photoimage_4 = imagetest_4.subsample(35,30)
+    Start_Button = Button(image = photoimage_1, borderwidth = 0, command=sw.Start)
+    Stop_Button = Button(image = photoimage_2, borderwidth = 0, command=sw.Stop)
+    Lap_Button = Button(image = photoimage_3, borderwidth = 0, command=sw.Lap_times)
+    Reset_Button = Button(image = photoimage_4, borderwidth = 0, command=sw.Reset)
+    Save_Button = Button(image = photoimage_5, borderwidth = 0)
 
-# Button configuration
-start_button = Button(image = photoimage_1, borderwidth = 0, command = start, bg = "#273755")
-stop_button = Button(image = photoimage_2, borderwidth = 0, command = stop, bg = "#273755")
-resume_button = Button(image = photoimage_1, borderwidth = 0, command = start, bg = "#273755")
-lap_button = Button(image = photoimage_3, borderwidth = 0, command = lap, bg = "#273755")
-reset_button = Button(image = photoimage_4, borderwidth = 0, command = reset, bg = "#273755")
+    Start_Button.place(x = 210, y = 260, width = 70, height = 30)
+    Stop_Button.place(x = 315, y = 260, width = 70, height = 30) 
+    Lap_Button.place(x = 420, y = 260, width = 70, height = 30)
+    Reset_Button.place(x = 525, y = 260, width = 70, height = 30)
+    Save_Button.place(x = 5, y = 5, width = 70, height = 30)
 
-# Button placements
-start_button.place(x = 75, y = 240, width = 100, height = 40)
-stop_button.place(x = 75, y = 240, width = 100, height = 40)
-resume_button.place(x = 75, y = 240, width = 100, height = 40)
-lap_button.place(x = 250, y = 240, width = 100, height = 40)
-reset_button.place(x = 250, y = 240, width = 100, height = 40)
 
 digi_clock()
 root.mainloop()
