@@ -46,27 +46,25 @@ class StopWatch(Frame):
         self.lap_time_box.place(x = 240,y = 350,width = 300,height = 100)
         scrollbar.config(command=self.lap_time_box.yview,highlightthickness=0)
         scrollbar.place(x = 255,y = 350,width =300,height = 100)
+#digi_clock
+        def digi_clock():
+            Time = time.strftime("%I:%M %p")
+            Date = time.strftime("%A %x")
+    
+            my_clock.config(text= Time)
+            my_clock.after (1000, digi_clock)
+            my_clock2.config(text = Date)
+    
+        def update():
+            my_clock.config(text = "Text")
 
-#digital_clock
-def digi_clock():
-    Time = time.strftime("%H:%M %p")
-    Date = time.strftime("%A %x")
-    
-    my_clock.config(text= Time)
-    my_clock.after (1000, clock)
-    my_clock2.config(text = Date)
-    
-def update():
-    my_clock.config(text = "New Text")
-    
 # Clock configuration
-my_clock = Label(root, text = "", bg = "#273755", fg = "white", font = ("Bebas Neue Book", 24, "bold")) 
-my_clock.place(x = 650,y = 2, width = 150, height = 80) 
-my_clock2 = Label(root, text = " ", bg = "#273755", justify = "left", anchor = "w", fg = "white", font = ("Bebas Neue Book", 16))
-my_clock2.place(x = 660,y = 55, width = 140,height = 25) 
+        my_clock = Label(text = "", bg = "#273755", fg = "white", font = ("Lato", 24, "bold")) 
+        my_clock.place(x = 330,y = 5,width = 150, height = 25) 
+        my_clock2 = Label(text = " ", bg = "#273755", justify = "left", anchor = "w", fg = "white", font = ("Lato", 12))
+        my_clock2.place(x = 343,y = 30,width = 150,height = 20) 
 
-clock = Label(text = "00:00:00", bg = "#273755", fg = "white", font = ("Bebas Neue Book",90,"bold"))
-clock.place(x = 30,y = 120,width = 400,height = 90)
+        digi_clock()
 
 # Defining global variables in this program
 time_elapsed_1 = 0
