@@ -96,14 +96,14 @@ class StopWatch(Frame):
             self.time(self._elapsedtime)
             self._running = 0
 
-# Resume function
+    # Resume function
     def Resume(self):
         if not self._running:            
             self._start = time.time() - self._elapsedtime
             self.update()
             self._running = 1   
 
-        # Reset Function
+    # Reset Function
     def Reset(self):        
         self.lap_time_box.delete(0, END)                            
         self._start = time.time()
@@ -112,24 +112,29 @@ class StopWatch(Frame):
         self.laps = []
         self.old_time = 0
     
-# Lap function
-def lap():
-    def lap():
-    global time_elapsed_1, time_elapsed_2, time_elapsed_3,time_1,self_job,time_2,a,b
-    if a < 9:
-        lap_times((str(time_elapsed_3).zfill(2) + ":" + str(time_elapsed_2).zfill(2) + ":" + str(time_elapsed_1).zfill(2)), 20+(110*a),400+(b*50))
-    else:
-        b += 1
-        a = 0
-        lap_times((str(time_elapsed_3).zfill(2) + ":" + str(time_elapsed_2).zfill(2) + ":" + str(time_elapsed_1).zfill(2)), 20+(110*a),400+(b*50))
-    a += 1
+    # Setting lap-based time
+    def create_LapTime(self, elap):
+        minutes = int(elap/60)
+        seconds = int(elap - minutes*60.0)
+        milliseconds = int((elap - minutes*60.0 - seconds)*100)            
+        return '%02d:%02d.%02d' % (minutes, seconds, milliseconds)
+        
+    #  Makes lap times
+    def Lap_times(self):
+        tempo = self._elapsedtime - self.old_time
+        if self._running:
+            self.laps.append(self.create_LapTime(tempo))
+            self.lap_time_box.insert(END, self.laps[-1])
+            self.lap_time_box.yview_moveto(1)
+            self.old_time = self._elapsedtime
+            time.sleep(0.1)
 
-# Time laps
-def lap_times(text,_x,_y):
-    label_1 = Label(root, text = "Lap times: ",fg = "black",bg = "white", font = ("Helevitica", 12,"bold"))
-    label_2 = Label(root, text = text,fg = "black",bg = "white", font = ("Helevitica", 12,"bold"))
-    label_1.place(x= 30, y = 400, width = 100, height = 80)
-    label_2.place(x= _y, y = 400+_x, width = 70, height = 80)
+    #  Creates a file to save lap times
+    def Save_LapFile(self):
+        archives = str(self.file_name_box.get()) + ' - '
+        with open(archives + self.today + '.txt', 'wb') as lapfile:
+            for lap in self.laps:
+                lapfile.write((bytes(str(lap) + '\n', 'utf-8')))  
     
 # Reset function
 def reset():
