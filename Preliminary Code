@@ -76,6 +76,12 @@ a = 0
 b = 0
 
 # Creating functions of the stopwatch
+
+# Updates time relative time elapsed
+    def update(self): 
+        self._elapsedtime = time.time() - self._start
+        self.time(self._elapsedtime)
+        self._timer = self.after(50, self.update)
 # Start function
 
 
