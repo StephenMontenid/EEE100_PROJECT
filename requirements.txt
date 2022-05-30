@@ -1,0 +1,7 @@
+autopy==4.0.0
+keyboard==0.13.5
+mediapipe==0.8.10
+numpy==1.21.6
+opencv_python==4.5.5.64
+
+# Also install Tkinter library version 8.6 and import the module.
