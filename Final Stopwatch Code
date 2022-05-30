@@ -144,6 +144,10 @@ def main():
     sw = StopWatch(root) 
     sw.pack(side=TOP)
     
+    # Icon for Stopwatch
+    Icon = PhotoImage(file = r"CODER_MONKS.png")
+    root.iconphoto(False, Icon)
+    
     # Images for buttons
     imagetest_1 = PhotoImage(file = r"START.png")
     imagetest_2 = PhotoImage(file = r"STOP.png")
