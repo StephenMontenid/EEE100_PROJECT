@@ -18,17 +18,34 @@ class StopWatch(Frame):
         self.old_time = 0
         self.today = time.strftime("%d %b %Y %H-%M-%S", time.localtime())  
 
-# program widget
-root = Tk()
-root.title("Stopwatch")
-root.configure(background=("#273755"))
-root.geometry("800x500")
-root.resizable(0,0) 
+# widget    
+    def widget(self):       
+        # Create a canvas
+        my_canvas = Canvas(width = 800, height = 500, bg = "#273755", highlightthickness = 0)
+        my_canvas.pack()
 
-# Create a canvas and line
-my_canvas = Canvas(root, width = 800, height = 500, bg = "#273755", highlightthickness = 0)
-my_canvas.pack()
-l = my_canvas.create_line(0,55,650,55, fill = "white")
+        Filename = Label(text='File name:', bg = "#273755", fg = "white", font = ("Lato",16,"bold"))
+        Filename.place(x = 220, y = 455, width = 200, height = 40)
+
+        self.file_name_box = Entry(bg = "#273755", fg = "white", font = ("Lato",12))
+        self.file_name_box.place(x = 380, y = 460, width = 150, height = 30) 
+        
+        clock = Label(textvariable=self.timestr, bg = "#273755", fg = "white", font = ("Lato",90,"bold"))
+        self.time(self._elapsedtime)
+        clock.place(x = 150,y = 120,width = 500,height = 90) 
+
+        my_canvas.create_text(227,225, text = "MINUTES", fill = "white", anchor = "c", font = ("Lato",10)) 
+        my_canvas.create_text(370,225, text = "SECONDS", fill = "white", anchor = "w", font = ("Lato",10))
+
+        LapTime = Label(text='Lap times',  bg = "#273755", fg = "white", font = ("Lato",20,"bold"),)
+        LapTime.place(x = 200,y = 320,width = 400,height = 30)
+
+        scrollbar = Scrollbar(orient=VERTICAL)
+        self.lap_time_box = Listbox(selectmode=EXTENDED, height = 5,
+                         yscrollcommand=scrollbar.set, bg = "#273755", fg = "white", font = ("Lato",12), border = 0)
+        self.lap_time_box.place(x = 240,y = 350,width = 300,height = 100)
+        scrollbar.config(command=self.lap_time_box.yview,highlightthickness=0)
+        scrollbar.place(x = 255,y = 350,width =300,height = 100)
 
 #digital_clock
 def digi_clock():
