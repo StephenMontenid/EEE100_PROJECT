@@ -169,7 +169,26 @@ def main():
     Lap_Button.place(x = 420, y = 260, width = 70, height = 30)
     Reset_Button.place(x = 525, y = 260, width = 70, height = 30)
     Save_Button.place(x = 5, y = 5, width = 70, height = 30)
+    
+# Hotkeys confuguration
+    def key_loop():      
+        while True:
+            if keyboard.is_pressed("spacebar"):
+                sw.Start()
+            elif keyboard.is_pressed("enter"):
+                sw.Lap_times()
+            elif keyboard.is_pressed("backspace"):
+                sw.Reset()
+            elif keyboard.is_pressed("shift"):
+                sw.Stop()
+            elif keyboard.is_pressed("ctrl + s"):
+                sw.Save_LapFile()
+            else:
+                pass
+            time.sleep(0.1)
 
+    thread = threading.Thread(target = key_loop).start()
+    root.mainloop() 
 
-digi_clock()
-root.mainloop()
+if __name__ == '__main__':
+    main()
