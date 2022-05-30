@@ -156,7 +156,7 @@ def main():
     photoimage_2 = imagetest_2.subsample(48,28)
     photoimage_3 = imagetest_3.subsample(48,28)
     photoimage_4 = imagetest_4.subsample(48,28)
-    photoimage_5 = imagetest_5.subsample(48,28)
+    photoimage_5 = imagetest_5.subsample(123, 123)
 
     Start_Button = Button(image = photoimage_1, borderwidth = 0, command=sw.Start)
     Stop_Button = Button(image = photoimage_2, borderwidth = 0, command=sw.Stop)
