@@ -25,10 +25,10 @@ class StopWatch(Frame):
         my_canvas.pack()
 
         Filename = Label(text='File name:', bg = "#273755", fg = "white", font = ("Lato",16,"bold"))
-        Filename.place(x = 220, y = 455, width = 200, height = 40)
+        Filename.place(x = 200, y = 455, width = 200, height = 40)
 
-        self.file_name_box = Entry(bg = "#273755", fg = "white", font = ("Lato",12))
-        self.file_name_box.place(x = 380, y = 460, width = 150, height = 30) 
+        self.file_name_box = Entry(bg = "#273755", fg = "white", font = ("Lato",12)) 
+        self.file_name_box.place(x = 360, y = 460, width = 150, height = 30)
         
         clock = Label(textvariable=self.timestr, bg = "#273755", fg = "white", font = ("Lato",90,"bold"))
         self.time(self._elapsedtime)
@@ -162,13 +162,13 @@ def main():
     Stop_Button = Button(image = photoimage_2, borderwidth = 0, command=sw.Stop)
     Lap_Button = Button(image = photoimage_3, borderwidth = 0, command=sw.Lap_times)
     Reset_Button = Button(image = photoimage_4, borderwidth = 0, command=sw.Reset)
-    Save_Button = Button(image = photoimage_5, borderwidth = 0)
+    Save_Button = Button(image = photoimage_5, borderwidth = 0, command=sw.Save_LapFile)
 
     Start_Button.place(x = 210, y = 260, width = 70, height = 30)
     Stop_Button.place(x = 315, y = 260, width = 70, height = 30) 
     Lap_Button.place(x = 420, y = 260, width = 70, height = 30)
     Reset_Button.place(x = 525, y = 260, width = 70, height = 30)
-    Save_Button.place(x = 5, y = 5, width = 70, height = 30)
+    Save_Button.place(x = 520, y = 462, width = 25, height = 25)
     
 # Hotkeys confuguration
     def key_loop():      
