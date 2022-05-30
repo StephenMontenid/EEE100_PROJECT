@@ -18,7 +18,7 @@ class StopWatch(Frame):
         self.old_time = 0
         self.today = time.strftime("%d %b %Y %H-%M-%S", time.localtime())  
 
-# widget    
+    # widget    
     def widget(self):       
         # Create a canvas
         my_canvas = Canvas(width = 800, height = 500, bg = "#273755", highlightthickness = 0)
@@ -46,7 +46,8 @@ class StopWatch(Frame):
         self.lap_time_box.place(x = 240,y = 350,width = 300,height = 100)
         scrollbar.config(command=self.lap_time_box.yview,highlightthickness=0)
         scrollbar.place(x = 255,y = 350,width =300,height = 100)
-#digi_clock
+        
+        #digi_clock
         def digi_clock():
             Time = time.strftime("%I:%M %p")
             Date = time.strftime("%A %x")
@@ -58,7 +59,7 @@ class StopWatch(Frame):
         def update():
             my_clock.config(text = "Text")
 
-# Clock configuration
+        # Clock configuration
         my_clock = Label(text = "", bg = "#273755", fg = "white", font = ("Lato", 24, "bold")) 
         my_clock.place(x = 330,y = 5,width = 150, height = 25) 
         my_clock2 = Label(text = " ", bg = "#273755", justify = "left", anchor = "w", fg = "white", font = ("Lato", 12))
@@ -66,74 +67,34 @@ class StopWatch(Frame):
 
         digi_clock()
 
-# Defining global variables in this program
-time_elapsed_1 = 0
-time_elapsed_2 = 0
-time_elapsed_3 = 0
-time_1 = 0
-time_2= 0
-a = 0
-b = 0
-
 # Creating functions of the stopwatch
-
-# Updates time relative time elapsed
+    # Updates time relative time elapsed
     def update(self): 
         self._elapsedtime = time.time() - self._start
         self.time(self._elapsedtime)
         self._timer = self.after(50, self.update)
         
-# setting time 
+    # Setting time 
     def time(self, elap):
         minutes = int(elap/60)
         seconds = int(elap - minutes*60.0)
         milliseconds = int((elap - minutes*60.0 - seconds)*100)                
         self.timestr.set('%02d:%02d.%02d' % (minutes, seconds, milliseconds))        
            
-
-# Start function
-
-
-def start():
-    start_button.place_forget()
-    resume_button.place_forget()
-    reset_button.place_forget()
-    stop_button.place(x = 75, y = 240, width = 75, height = 23)
-    global time_elapsed_1,time_elapsed_2,time_elapsed_3,time_1,self_job,time_2
-    time_2 = int(time.time())
-    if time_2 != time_1:
-        time_1 = time_2
-        if time_elapsed_1 < 59:
-            time_elapsed_1 += 1
-            clock.config(text = (str(time_elapsed_3).zfill(2) + ":" + str(time_elapsed_2).zfill(2) + ":" + str(time_elapsed_1).zfill(2)))
-        else:
-            time_elapsed_1 = 0
-            time_elapsed_2 += 1
-            if time_elapsed_2 < 59:
-                time_elapsed_2 += 1
-                clock.config(text = (str(time_elapsed_3).zfill(2) + ":" + str(time_elapsed_2).zfill(2) + ":" + str(time_elapsed_1).zfill(2)))
-            else:
-                time_elapsed_2 = 0
-                time_elapsed_3 +=1
-                if time_elapsed_3 >= 24:
-                    time_elapsed_1 = 0
-                    time_elapsed_2 = 0
-                    time_elapsed_3 = 0
-                else:
-                    time_elapsed_3 += 1
-                    clock.config(text = (str(time_elapsed_3).zfill(2) + ":" + str(time_elapsed_2).zfill(2) + ":" + str(time_elapsed_1).zfill(2)))
-    self_job = root.after(1000, start)
-
-# Stop function
-def stop():
-    def stop():
-    global self_job
-    if self_job is not None:
-        root.after_cancel(self_job)
-        self_job = None
-    stop_button.place_forget()
-    resume_button.place(x = 75, y = 240, width = 100, height = 40)
-    reset_button.place(x = 250, y = 240, width = 100, height = 40)
+    # Start function
+    def Start(self):                                   
+        if not self._running:            
+            self._start = time.time() - self._elapsedtime
+            self.update()
+            self._running = 1  
+            
+    # Stop function
+    def Stop(self):                                    
+        if self._running:
+            self.after_cancel(self._timer)            
+            self._elapsedtime = time.time() - self._start    
+            self.time(self._elapsedtime)
+            self._running = 0
 
 # Resume function
 def resume():
