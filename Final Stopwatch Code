@@ -187,8 +187,6 @@ def main():
                 sw.Reset()
             elif keyboard.is_pressed("ctrl + s"):
                 sw.Save_LapFile()
-            else:
-                pass
             time.sleep(0.1)
 
     thread = threading.Thread(target = key_loop).start()
