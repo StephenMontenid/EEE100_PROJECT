@@ -3,6 +3,10 @@
 Hello and welcome :wave: This is our group, “CODER MONKS,” and we created a Stopwatch.
 ![photo_2022-05-30_22-15-10](https://user-images.githubusercontent.com/105409879/171549054-339c5f8f-c944-4663-baf6-06e43f60a4fe.jpg)
 
+
+https://user-images.githubusercontent.com/105409879/171555019-f0a0a317-bc25-4640-bb9d-cee367595325.mp4
+
+
 ## A digital stopwatch :watch: is utilized to record the length of time of an event. It is a type of clock that is notable for the precision with which it can ensure the accuracy of an event. A basic stopwatch should have the following buttons: start, stop, split (lap), and reset. ##
 
 # Stopwatch Basic Functions #
@@ -69,7 +73,7 @@ Make it easier to access and to know the time and date while using it.
 
 The developers enable the main functions of the stopwatch to be executed by pressing certain keys.
 
-See the attached video link above for the demonstration of Hotkeys.
+See the attached video above for the demonstration of Hotkeys.
 
 # Virtual mouse :computer_mouse: #
 ![photo_2022-06-01_17-01-10](https://user-images.githubusercontent.com/105409879/171552642-46393ceb-a4f8-4593-9306-96923d7ab009.jpg)
@@ -85,8 +89,12 @@ Now, open the "STOPWATCH" folder first in the VS code or any IDE of your choice,
 
 ![Screenshot (696)](https://user-images.githubusercontent.com/105409879/171551398-d6ba1749-d54e-4d86-b7d7-42974f74272f.png)
 
+See the attached video link for the demonstration of Virtual mouse.
+### Commands ###
+1. Use index finger to point and move through the entire screen
+2. use the thumb finger to show a thumbs up sign to execute left click
 
-See the attached video link above for the demonstration of Virtual mouse.
+https://user-images.githubusercontent.com/105409879/171555178-cca4786d-d3cc-4127-8123-4a0f8eaace82.mp4
 
 # Stopwatch UI and Logo design :computer: #
 ![photo_2022-06-01_17-01-33](https://user-images.githubusercontent.com/105409879/171549046-12adedef-acf0-4191-89e9-38101a878197.jpg)
