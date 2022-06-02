@@ -72,7 +72,7 @@ The developers enable the main functions of the stopwatch to be executed by pres
 See the attached video link above for the demonstration of Hotkeys.
 
 # Virtual mouse :computer_mouse: #
-![photo_2022-06-01_17-01-04](https://user-images.githubusercontent.com/105409879/171548203-909eac5c-0d39-4ca3-8a26-4ed8233550ae.jpg)
+![photo_2022-06-01_17-01-10](https://user-images.githubusercontent.com/105409879/171552642-46393ceb-a4f8-4593-9306-96923d7ab009.jpg)
 
 Employs the mouse to move through the entire screen and executes the left click button by using image recognition and hand-tracking. Moreover, the developers integrate this virtual mouse system for scenarios where the user is relatively far from the device, i.e., the user can use the stopwatch program without using hotkeys or an external mouse to manually operate the stopwatch. 
 
