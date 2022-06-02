@@ -69,7 +69,8 @@ It offers unlimited lap times, so the user can press the lap button as many time
 Make it easier to access and to know the time and date while using it.
 
 # Hotkeys :keyboard: #
-![photo_2022-06-01_17-01-20 (2)](https://user-images.githubusercontent.com/105409879/171548830-cb7724b0-62af-4957-b1e4-bf579334eb3f.jpg)
+![photo_2022-06-02_13-02-30](https://user-images.githubusercontent.com/105409879/171556391-bd13ba10-31ff-429a-b5f8-ff28a9bfbbfc.jpg)
+
 
 The developers enable the main functions of the stopwatch to be executed by pressing certain keys.
 
@@ -103,4 +104,5 @@ The developers designed the stopwatch to be minimalistic and simple with an Aege
 
 # The Developers #
 While designing and implementing this project as an amateur, we encountered a number of errors and difficulties. However, it can be used and developed in the near future as we continue to practice and engage in programming. We learned many things and will continue learning from this. Again, we are the coder monks, signing off! See you soon on the next project!
-![photo_2022-06-02_11-51-36](https://user-images.githubusercontent.com/105409879/171549612-65e90f94-65d9-487e-86a4-5c6c974024a0.jpg)
+
+![photo_2022-06-02_11-51-36](https://user-images.githubusercontent.com/105409879/171556725-8dbf8986-08c6-4447-9ee4-195a888640e8.jpg)
